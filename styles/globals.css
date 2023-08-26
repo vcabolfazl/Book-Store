@@ -61,23 +61,32 @@
     direction: rtl !important;
   }
 
-  .land {
-    background: url(".././public/assets/Images/Banner/1.png") no-repeat;
+  /* --> Start Banner Section ((1)) */
+
+  .Banner1 {
+    background: url(".././public/assets/Images/Banner/1.png");
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  .land2 {
-    background: url(".././public/assets/Images/Banner/2.jpg") no-repeat;
+  .Banner2 {
+    background: url(".././public/assets/Images/Banner/2.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  .land3 {
-    background: url(".././public/assets/Images/Banner/3.jpg") no-repeat;
+  .Banner3 {
+    background: url(".././public/assets/Images/Banner/3.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  .land4 {
-    background: url(".././public/assets/Images/Banner/4.jpg") no-repeat;
+  .Banner4 {
+    background: url(".././public/assets/Images/Banner/4.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
   }
+
+  /* End Banner Section ((1)) <-- */
+
 }
