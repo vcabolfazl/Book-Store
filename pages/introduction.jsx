@@ -12,12 +12,9 @@ export default function introduction() {
   e.preventDefault()
   if (lssueValue !== "انتخاب کنید" || storyValue !== "انتخاب کنید") {
   } else {
-   Swal.fire({
-    position: 'center',
+   Alert({
     icon: 'warning',
     title: 'حداقل یکی از فیلد ها را پر کنید',
-    showConfirmButton: false,
-    timer: 1500
    })
   }
  }

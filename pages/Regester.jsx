@@ -19,12 +19,9 @@ export default function Regester() {
    && pattern.email.test(emailValue)
    && pattern.password.test(passwordValue)
    && passwordValue === rePasswordValue) {
-   Swal.fire({
-    position: 'center',
+   Alert({
     icon: 'success',
     title: 'ثـبت نام با موفقیت انجام شد',
-    showConfirmButton: false,
-    timer: 1500
    })
    userNameReset()
    phoneReset()
@@ -32,12 +29,9 @@ export default function Regester() {
    passwordReset()
    rePasswordReset()
   } else {
-   Swal.fire({
-    position: 'center',
+   Alert({
     icon: 'error',
     title: 'اطلاعات وارد شده اشتباه میباشد',
-    showConfirmButton: false,
-    timer: 1500
    })
    userNameReset()
    phoneReset()

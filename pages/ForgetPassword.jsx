@@ -2,7 +2,7 @@ import useInput from '@/Hooks/useInput'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
-import Swal from 'sweetalert2'
+import Alert from '@/components/SweetAlert'
 
 export default function ForgetPassword() {
  const [InptValue, InptBinding, InptReset] = useInput("")
@@ -12,40 +12,28 @@ export default function ForgetPassword() {
   e.preventDefault()
   if (InptValue.length) {
    if (pattern.username.test(InptValue)) {
-    Swal.fire({
-     position: 'center',
+    Alert({
      icon: 'success',
      title: 'لینک تعویض رمز عبور به ایمیل شما ارسال شد',
-     showConfirmButton: false,
-     timer: 1500
     })
     InptReset()
    } else if (pattern.email.test(InptValue)) {
-    Swal.fire({
-     position: 'center',
+    Alert({
      icon: 'success',
      title: 'لینک تعویض رمز عبور به ایمیل شما ارسال شد',
-     showConfirmButton: false,
-     timer: 1500
     })
     InptReset()
    } else {
-    Swal.fire({
-     position: 'center',
+    Alert({
      icon: 'error',
      title: 'مقدار وارد شده صحیح نیست',
-     showConfirmButton: false,
-     timer: 1500
     })
     InptReset()
    }
   } else {
-   Swal.fire({
-    position: 'center',
+   Alert({
     icon: 'warning',
     title: 'فیلد مورد نظر را پر کنید',
-    showConfirmButton: false,
-    timer: 1500
    })
    InptReset()
   }

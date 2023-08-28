@@ -12,34 +12,27 @@ export default function Login() {
   let pattern = { userName: /^(?!.*[$#%@])[A-Za-z0-9]{5,}$/, password: /^(?!\s)[\S]{8,}$/ }
   if (userNameValue.length >= 5 && passwordValue.length >= 8) {
    if (pattern.userName.test(userNameValue) && pattern.password.test(passwordValue)) {
-    Swal.fire({
-     position: 'center',
+    Alert({
      icon: 'success',
      title: 'خوش آمدید',
-     showConfirmButton: false,
-     timer: 1500
+
     })
     userNameReset()
     passwordReset()
 
    } else {
-    Swal.fire({
-     position: 'center',
+    Alert({
      icon: 'error',
      title: 'اطلاعات وارد شده اشتباه میباشد',
-     showConfirmButton: false,
-     timer: 1500
+
     })
     userNameReset()
     passwordReset()
    }
   } else {
-   Swal.fire({
-    position: 'center',
+   Alert({
     icon: 'warning',
     title: 'لطفا فرم را تکمیل کنید',
-    showConfirmButton: false,
-    timer: 1500
    })
   }
  }
