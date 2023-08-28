@@ -89,4 +89,23 @@
 
   /* End Banner Section ((1)) <-- */
 
+  /* --> Start 404 Pages */
+
+  .error404 {
+    margin-top: 8rem;
+    width: 100%;
+    animation: error404 1.2s alternate;
+  }
+
+  @keyframes error404 {
+    from {
+      width: 50%;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+  /* End 404 Page <-- */
 }
