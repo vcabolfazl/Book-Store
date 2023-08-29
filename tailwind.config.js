@@ -15,6 +15,11 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        "dana-Medium": "Dana Medium",
+        "dana-Bold": "Dana Bold",
+        "dana-Regular": "Dana Regular",
+      },
     },
   },
   plugins: [],

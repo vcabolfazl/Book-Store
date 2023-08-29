@@ -325,8 +325,7 @@ export default function Svg() {
     </g>
    </symbol>
 
-   <symbol
-    id='titleIcon'
+   <symbol id='titleIcon'
     className="text-dark-550 lg:ml-4 lg:flex hidden mt-2"
     width={37}
     height={34}
@@ -817,6 +816,78 @@ export default function Svg() {
      </g>
     </g>
    </symbol>
+
+   <symbol id='ticket' viewBox="0 0 41.98 31.09">
+    <defs>
+     <style>
+      {
+       ".cls-1,.cls-2{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:4px;}.cls-1{stroke:#9f6aff;}.cls-2{stroke:#ff6ad3;}.cls-3{opacity:0.15;}"
+      }
+     </style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+     <g id="Icons">
+      <path
+       className="cls-1"
+       d="M22,27.18H39.13a.85.85,0,0,0,.85-.85V19.52h-.07a4.86,4.86,0,0,1-4.86-4.86h0A4.86,4.86,0,0,1,39.91,9.8H40v-7A.85.85,0,0,0,39.13,2H15.55"
+      />
+      <path
+       className="cls-1"
+       d="M40,9.8h-.07a4.86,4.86,0,0,0-4.86,4.86h0a4.86,4.86,0,0,0,4.86,4.86H40"
+      />
+      <path
+       className="cls-2"
+       d="M22,27.18H4.82A.85.85,0,0,1,4,26.33V19.52h.07A4.86,4.86,0,0,0,8.9,14.66h0A4.86,4.86,0,0,0,4.05,9.8H4v-7A.85.85,0,0,1,4.82,2H9.54"
+      />
+      <path
+       className="cls-2"
+       d="M4,9.8h.07A4.86,4.86,0,0,1,8.9,14.66h0a4.86,4.86,0,0,1-4.85,4.86H4"
+      />
+      <line className="cls-1" x1={17.39} y1={11.62} x2={26.56} y2={11.62} />
+      <line className="cls-1" x1={17.39} y1={11.62} x2={26.56} y2={11.62} />
+      <line className="cls-2" x1={17.39} y1={17.56} x2={26.56} y2={17.56} />
+      <g className="cls-3">
+       <path
+        className="cls-2"
+        d="M20,29.09H37.15a.85.85,0,0,0,.85-.85V21.43h-.07a4.87,4.87,0,0,1-4.86-4.86h0a4.87,4.87,0,0,1,4.86-4.86H38v-7a.85.85,0,0,0-.85-.85H13.57"
+       />
+       <path
+        className="cls-2"
+        d="M38,11.71h-.07a4.87,4.87,0,0,0-4.86,4.86h0a4.87,4.87,0,0,0,4.86,4.86H38"
+       />
+       <path
+        className="cls-2"
+        d="M20,29.09H2.85A.85.85,0,0,1,2,28.24V21.43h.07a4.87,4.87,0,0,0,4.86-4.86h0a4.87,4.87,0,0,0-4.86-4.86H2v-7a.85.85,0,0,1,.85-.85H7.57"
+       />
+       <path
+        className="cls-2"
+        d="M2,11.71h.07a4.87,4.87,0,0,1,4.86,4.86h0a4.87,4.87,0,0,1-4.86,4.86H2"
+       />
+       <line className="cls-2" x1={15.41} y1={13.53} x2={24.59} y2={13.53} />
+       <line className="cls-2" x1={15.41} y1={13.53} x2={24.59} y2={13.53} />
+       <line className="cls-2" x1={15.41} y1={19.47} x2={24.59} y2={19.47} />
+      </g>
+     </g>
+    </g>
+   </symbol>
+
+   <symbol id='heart' viewBox="0 0 41.78 36.95">
+    <defs>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+     <g id="Icons">
+      <path
+       className="cls-1"
+       d="M21.75,7.68c-5-8.89-16.47-6.56-17.83,1.58C2.43,18.15,12.74,27.66,21.75,33c9-5.33,19.63-14.8,17.82-23.73C37.93,1.17,26.76-1.21,21.75,7.68"
+      />
+      <path
+       className="cls-2"
+       d="M20,9.64C15,.75,3.51,3.08,2.14,11.22.66,20.11,11,29.62,20,35c9-5.33,19.64-14.8,17.83-23.73C36.15,3.13,25,.75,20,9.64"
+      />
+     </g>
+    </g>
+   </symbol>
+
   </svg >
  )
 }

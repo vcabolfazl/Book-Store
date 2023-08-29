@@ -2,7 +2,6 @@ import useInput from '@/Hooks/useInput'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
-import Swal from 'sweetalert2'
 
 export default function Regester() {
  const [userNameValue, usernameBinding, userNameReset] = useInput("")
