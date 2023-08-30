@@ -9,7 +9,7 @@ export default function ProductCard() {
     <span className='absolute right-0 rounded-b-[2px] top-0 text-white font-dana-Bold pt-2 rounded-tr-xl rounded-bl-xl bg-indigo-700 px-2 py-px text-xs sm:text-base '>%15  تخفیف</span>
 
     <Link href={"/Book-info/name"}>
-     <img src="/assets/Images/products/1984.jpg" className='mt-1' alt="" />
+     <img src="/assets/Images/products/13.jpg" className='mt-1' alt="" />
     </Link>
    </div>
    {/* End Header Card <-- */}
