@@ -4,8 +4,34 @@ import SectionHeader from '@/components/SectionHeader'
 import SingleSlider from '@/components/SingleSlider'
 import Slider from '@/components/Slider'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [allProducts, setAllProducts] = useState([])
+  const [bannerDatas, setBannerDatas] = useState([])
+  const [sliderImags, setSliderImags] = useState([])
+  const productsOffer = allProducts.filter(product => product.offPrice !== 0)
+  const bestsells = allProducts.sort((a, b) => a.sellNum - b.sellNum)
+  const getAllProduct = async () => {
+    const res = await fetch("https://bookstoreserver.iran.liara.run/products")
+    const datas = await res.json()
+    setAllProducts(datas)
+  }
+  const getBanner = async () => {
+    const res = await fetch("https://bookstoreserver.iran.liara.run/banner")
+    const datas = await res.json()
+    setBannerDatas(datas)
+  }
+  const getSlidserImgs = async () => {
+    const res = await fetch("https://bookstoreserver.iran.liara.run/sliderImg")
+    const datas = await res.json()
+    setSliderImags(datas)
+  }
+  useEffect(() => {
+    getAllProduct()
+    getBanner()
+    getSlidserImgs()
+  }, [])
   return (
     <>
       <Header />
@@ -73,6 +99,7 @@ export default function Home() {
           />
           <Slider
             sm={2}
+            products={allProducts}
           />
         </div>
         {/* End New Books Slider <-- */}
@@ -137,17 +164,23 @@ export default function Home() {
           </div>
           <div className="col-span-3 md:col-span-4">
             <Slider
-              sm={1} />
+              sm={1}
+              products={productsOffer}
+            />
           </div>
         </div>
         {/* End Amazing Offer <-- */}
 
         {/* --> Start Banner Section ((2)) */}
         <div className="my-4 grid md:grid-cols-2 gap-3 md:gap-5">
-          <img className='Banner rounded-xl' src="/assets/Images/Banner/11.jpg" alt="" />
-          <img className='Banner rounded-xl' src="/assets/Images/Banner/33.jpg" alt="" />
-          <img className='Banner rounded-xl' src="/assets/Images/Banner/44.jpg" alt="" />
-          <img className='Banner rounded-xl' src="/assets/Images/Banner/22.jpg" alt="" />
+          {
+            bannerDatas ?
+              bannerDatas.map(banner => (
+                <img key={banner.id} className='Banner rounded-xl' src={banner.src} alt="" />
+              ))
+              : null
+          }
+
         </div>
         {/* End Banner Section ((2)) <-- */}
 
@@ -158,13 +191,16 @@ export default function Home() {
             btnTitle={"کتاب های بیشتر"}
           />
           <Slider
-            sm={2} />
+            sm={2}
+            products={bestsells} />
+
         </div>
         {/* End Best Sell Book <-- */}
 
         {/* --> Start Single Slider */}
         <div className="my-4">
-          <SingleSlider />
+          <SingleSlider
+            Images={sliderImags} />
         </div>
         {/* End Single Slider */}
       </div>

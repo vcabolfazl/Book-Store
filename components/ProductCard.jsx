@@ -1,15 +1,19 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function ProductCard() {
+export default function ProductCard(product) {
  return (
   <div className='relative border inline-block space-y-3 bg-white shadow-2xl rounded-xl p-3'>
    {/* --> Start Header Card */}
    <div className="">
-    <span className='absolute right-0 rounded-b-[2px] top-0 text-white font-dana-Bold pt-2 rounded-tr-xl rounded-bl-xl bg-indigo-700 px-2 py-px text-xs sm:text-base '>%15  تخفیف</span>
+    {
+     product.offPercent
+      ? <span className='absolute right-0 rounded-b-[2px] top-0 text-white font-dana-Bold pt-2 rounded-tr-xl rounded-bl-xl bg-indigo-700 px-2 py-px text-xs sm:text-base '>%{product.offPercent}  تخفیف</span>
+      : null
+    }
 
     <Link href={"/Book-info/name"}>
-     <img src="/assets/Images/products/13.jpg" className='mt-1' alt="" />
+     <img src={product.src} className='mt-1' alt="" />
     </Link>
    </div>
    {/* End Header Card <-- */}
@@ -17,8 +21,8 @@ export default function ProductCard() {
    {/*  --> Start Body Card */}
    <div className="">
     <Link href={"/Book-info/name"}>
-     <h5 className='line-clamp-1 font-dana-Bold text-lg'>کتاب 1997</h5>
-     <span className='line-clamp-2 font-dana-Regular'> توضیحات طولانی خیلی طولانی طولانی</span>
+     <h5 className='line-clamp-1 font-dana-Bold text-base'>{product.name}</h5>
+     <span className='line-clamp-2 font-dana-Regular'>{product.publications}</span>
     </Link>
    </div>
    {/* End Body Card <-- */}
@@ -27,15 +31,27 @@ export default function ProductCard() {
    <div className="flex items-center justify-between border-t pt-2">
     <div>
      <div className="flex items-center">
-      <sup><del>215,000
-       <svg className='w-3 h-3'>
-        <use href='#toman'></use>
-       </svg>
-      </del>
+
+      <sup>
+       {
+        product.offPercent && product.offPrice ?
+         <del>{
+          product.Price.toLocaleString()
+         }
+          <svg className='w-3 h-3'>
+           <use href='#toman'></use>
+          </svg>
+         </del>
+         : null
+       }
       </sup>
      </div>
      <div className="font-dana-Bold">
-      <span>195,000</span>
+      <span>
+       {
+        product.offPercent && product.offPrice ?  product.offPrice.toLocaleString() : product.Price.toLocaleString()
+       }
+      </span>
       <svg className='w-5 h-5'>
        <use href='#toman'></use>
       </svg>

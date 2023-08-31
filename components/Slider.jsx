@@ -9,7 +9,7 @@ import 'swiper/css';
 import { Pagination } from 'swiper/modules';
 import ProductCard from './ProductCard';
 
-export default function Slider({ sm }) {
+export default function Slider({ sm, products }) {
  return (
   <>
    <Swiper
@@ -37,30 +37,15 @@ export default function Slider({ sm }) {
     modules={[Pagination]}
     className="mySwiper"
    >
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
-    <SwiperSlide>
-     <ProductCard />
-    </SwiperSlide>
+    {
+     products ?
+      products.map(product => (
+       <SwiperSlide key={product.id}>
+        <ProductCard {...product} />
+       </SwiperSlide>
+      ))
+      : null
+    }
 
    </Swiper>
   </>

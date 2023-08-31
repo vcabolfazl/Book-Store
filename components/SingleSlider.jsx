@@ -10,7 +10,8 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
 
-export default function SingleSlider() {
+export default function SingleSlider(Images) {
+
  return (
   <>
    <Swiper
@@ -27,23 +28,16 @@ export default function SingleSlider() {
     modules={[Autoplay, Pagination]}
     className="mySwiper"
    >
-    <SwiperSlide>
-     <img className='rounded-xl mx-auto' src="/assets/Images/Banner/111.webp" alt="" />
-    </SwiperSlide>
+    {
+     Images ?
+     Images.Images.map(img => (
+       <SwiperSlide key={img}>
+        <img className='rounded-xl mx-auto' src={img} alt="" />
+       </SwiperSlide>
 
-    <SwiperSlide>
-     <img className='rounded-xl mx-auto' src="/assets/Images/Banner/222.webp" alt="" />
-
-    </SwiperSlide>
-
-    <SwiperSlide>
-     <img className='rounded-xl mx-auto' src="/assets/Images/Banner/333.webp" alt="" />
-
-    </SwiperSlide>
-    <SwiperSlide>
-     <img className='rounded-xl mx-auto' src="/assets/Images/Banner/444.webp" alt="" />
-
-    </SwiperSlide>
+      ))
+      : null
+    }
    </Swiper>
   </>
  );

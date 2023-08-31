@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header'
 import ProductCard from '@/components/ProductCard'
 import Breadcrumb from '@/components/Breadcrumb'
@@ -6,10 +6,21 @@ import { useRouter } from 'next/router'
 
 
 export default function index() {
- const params = useRouter().query.category
- const breadcroumb = params === "all" ? null : { id: 2, title: params, href: `Books/${params}` }
- console.log(breadcroumb);
+ const params = useRouter()
+ const [allProducts, setAllProducts] = useState([])
+ // const breadcroumb = params === "all" ? null : { id: 2, title: params, href: `Books/${params}` }
+ const getAllProduct = async () => {
+  const res = await fetch(`https://bookstoreserver.iran.liara.run/category=${params}`)
+  const datas = await res.json()
+  setAllProducts(datas)
+  console.log(params);
+ }
+ useEffect(() => {
+  getAllProduct()
+  console.log(allProducts);
+ }, [])
  return (
+
   <>
    <Header />
 
@@ -27,7 +38,7 @@ export default function index() {
          {
           id: 1, title: "کتاب ها", href: "Books/all"
          },
-         breadcroumb,
+         // breadcroumb,
         ]
        }
       />
@@ -63,10 +74,12 @@ export default function index() {
 
     {/* --> Start Books Section  */}
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-     <ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard />
-     <ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard />
-     <ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard />
-     <ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard /><ProductCard />
+     {
+      // allProducts &&
+      // allProducts.map(product => (
+      //  <ProductCard {...product} />
+      // ))
+     }
     </div>
     {/* End Books Section <-- */}
 

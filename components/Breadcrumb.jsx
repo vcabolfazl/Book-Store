@@ -15,10 +15,8 @@ export default function Breadcrumb({ Links }) {
     </li>
     {
      Links.map(link => (
-      <>
-       {
         link ? (
-         <li>
+         <li key={link.id}>
           <Link href={`/${link.href ? link.href : null}`} className='flex items-center gap-2'>
            {link.title}
            {
@@ -38,9 +36,6 @@ export default function Breadcrumb({ Links }) {
          : (
           null
          )
-       }
-
-      </>
      ))
     }
    </ul>

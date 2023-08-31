@@ -7,6 +7,12 @@ import Swal from 'sweetalert2'
 export default function Header() {
     const [showMenu, setShowMenu] = useState(false)
     const [menuScroll, setMenuScroll] = useState(true)
+    const [menuDatas, setMenuDatas] = useState([])
+    const getAllMenu = async () => {
+        const res = await fetch("https://bookstoreserver.iran.liara.run/menu")
+        const datas = await res.json()
+        setMenuDatas(datas)
+    }
 
     const scrollHandler = () => window.pageYOffset !== 0 ? setMenuScroll(false) : setMenuScroll(true)
 
@@ -28,6 +34,9 @@ export default function Header() {
             })
         }
     }
+    useEffect(() => {
+        getAllMenu()
+    }, [])
     useEffect(() => {
         window.addEventListener("scroll", scrollHandler)
         return () => window.removeEventListener("scroll", scrollHandler)
@@ -59,23 +68,29 @@ export default function Header() {
                     {/* Start Mobile Menu Body */}
                     <div className="my-2">
                         <ul className='space-y-5'>
-                            <li className='transitionSlow  group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
-                                <div className="flex gap-x-1">
-                                    <p href={"/"}>دسته‌بندی موضوعی</p>
-                                    <svg className="w-3 h-3 mt-2 group-hover:rotate-[-90deg]">
-                                        <use href='#arrow-left'></use>
-                                    </svg>
-                                </div>
-                                <ul className='group-hover:block gap-x-3 p-1 text-sm hidden'>
-                                    <li>روانشناسی</li>
-                                    <li>فلسفی</li>
-                                    <li>داستان کوتاه</li>
-                                    <li>تاریخی</li>
-                                    <li>سیاسی</li>
-                                    <li>خودپروری</li>
-                                </ul>
-                            </li>
-                            <li className='transitionSlow group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
+                            {
+                                // menuDatas 
+                                menuDatas.map(menu => (
+                                    <li className='transitionSlow  group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
+                                        <div className="flex gap-x-1">
+                                            <p href={"/"}>دسته‌بندی موضوعی</p>
+                                            <svg className="w-3 h-3 mt-2 group-hover:rotate-[-90deg]">
+                                                <use href='#arrow-left'></use>
+                                            </svg>
+                                        </div>
+                                        <ul className='group-hover:block gap-x-3 p-1 text-sm hidden'>
+                                            <li>روانشناسی</li>
+                                            <li>فلسفی</li>
+                                            <li>داستان کوتاه</li>
+                                            <li>تاریخی</li>
+                                            <li>سیاسی</li>
+                                            <li>خودپروری</li>
+                                        </ul>
+                                    </li>
+
+                                ))
+                            }
+                            {/* <li className='transitionSlow group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
                                 <div className="flex gap-x-1">
                                     <p href={"/"} >انواع داستان</p>
                                     <svg className="w-3 h-3 mt-2 group-hover:rotate-[-90deg]">
@@ -92,7 +107,7 @@ export default function Header() {
                                 </ul>
                             </li>
                             <li>کتاب‌های برگزیده</li>
-                            <li>معرفی کتاب</li>
+                            <li>معرفی کتاب</li> */}
                         </ul>
                     </div>
                     {/* End Mobile Menu Body */}
@@ -227,46 +242,37 @@ export default function Header() {
                                             کتاب خانواده
                                         </Link>
                                     </li>
-                                    <li className='flex transitionSlow items-centerp gap-x-1 group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
-                                        <Link href={"/Books/all"}>دسته‌بندی موضوعی</Link>
-                                        <span className='hidden group-hover:block'> : </span>
-                                        <ul className='group-hover:flex gap-x-3 p-1 text-sm hidden'>
-                                            <li>
-                                                <Link href={"/Books/روانشناسی"}>
-                                                    روانشناسی
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href={"/Books/فلسفی"}>
-                                                    فلسفی
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href={"/Books/داستان کوتاه"}>
-                                                    داستان کوتاه
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href={"/Books/تاریخی"}>
-                                                    تاریخی
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href={"/Books/سیاسی"}>
-                                                    سیاسی
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href={"/Books/خودپروری"}>
-                                                    خودپروری
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                        <svg className="w-3 h-3 mt-2">
-                                            <use href='#arrow-left'></use>
-                                        </svg>
-                                    </li>
-                                    <li className='flex transitionSlow items-centerp gap-x-1 group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
+                                    {
+                                        menuDatas ?
+                                            menuDatas.map(menu => (
+                                                <li className='flex transitionSlow items-centerp gap-x-1 group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
+                                                    <Link href={menu.src}>{menu.name}</Link>
+                                                    {
+                                                        menu.subMenu ? (
+                                                            <>
+                                                                <span className='hidden group-hover:block'> : </span>
+                                                                <ul className='group-hover:flex gap-x-3 p-1 text-sm hidden'>
+                                                                    {
+                                                                        menu.subMenu.map(submenu => (
+                                                                            <li>
+                                                                                <Link href={submenu.src}>
+                                                                                    {submenu.name}
+                                                                                </Link>
+                                                                            </li>
+                                                                        ))
+                                                                    }
+                                                                </ul>
+                                                                <svg className="w-3 h-3 mt-2">
+                                                                    <use href='#arrow-left'></use>
+                                                                </svg>
+                                                            </>
+                                                        ) : null
+                                                    }
+                                                </li>
+                                            ))
+                                            : null
+                                    }
+                                    {/* <li className='flex transitionSlow items-centerp gap-x-1 group hover:border-b border-dashed hover:pb-2 border-zinc-700'>
                                         <Link href={"/Books/انواع داستان"} >انواع داستان</Link>
                                         <span className='hidden group-hover:block'> : </span>
                                         <ul className='group-hover:flex gap-x-3 text-sm p-1 hidden'>
@@ -314,7 +320,7 @@ export default function Header() {
                                         <Link href={"/introduction"}>
                                             معرفی کتاب
                                         </Link>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </div>
                         </div>
