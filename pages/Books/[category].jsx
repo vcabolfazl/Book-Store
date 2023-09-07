@@ -10,7 +10,7 @@ export default function index() {
   const breadcroumb = params === "all" ? null : { id: 2, title: params, href: `Books/${params}` }
   const [dropDownValue, setDropDownValue] = useState("new")
 
-  // const searchHandler = (e) => {
+  const searchHandler = (e) => {
     const filteredBooks = allProducts.filter((book) =>
       book.name.toLowerCase().includes(e.target.value)
     );
@@ -55,6 +55,7 @@ export default function index() {
     getAllProduct()
     console.log(allProducts);
   }, [params])
+
   return (
 
     <>
