@@ -1,4 +1,4 @@
-## Online book store
+## Book Store (Next JS)
 This project only contains Front-End code and does not include Back-end code
 ### Technologies used :
 - Next JS
