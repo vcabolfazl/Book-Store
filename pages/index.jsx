@@ -34,7 +34,6 @@ export default function Home() {
   }, [])
   return (
     <>
-      <Header />
       <div className="container px-2">
 
         {/* --> Start Landing Section */}

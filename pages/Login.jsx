@@ -38,7 +38,6 @@ export default function Login() {
  }
  return (
   <>
-   <Header />
    <div className="my-8 container grid md:grid-cols-4 items-center justify-center">
     <b></b>
     <form onSubmit={subLogin} className='grid col-span-2 gap-5 p-5 rounded-xl border-2 border-gray-400 shadow-2xl bg-white'>

@@ -5,7 +5,6 @@ import React from 'react'
 export default function Error() {
  return (
   <>
-   <Header />
    <div className='w-1/2 mx-auto text-center my-8'>
     <img alt='' src="/assets/images/404.png" className='error404 mx-auto' />
     <div className="">

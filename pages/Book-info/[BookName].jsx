@@ -8,7 +8,6 @@ export default function BookName() {
  const [num, setNum] = useState(1)
  return (
   <>
-   <Header />
    <div className="container my-10 px-2">
     {/* --> Start Breadcrumb */}
     <div className="text-xs md:text-base">

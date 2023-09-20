@@ -59,7 +59,7 @@ export default function index() {
   return (
 
     <>
-      <Header />
+      
 
       <div className="container px-2 my-4">
 

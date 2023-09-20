@@ -6,7 +6,6 @@ import React from 'react'
 export default function SearchValue() {
  return (
   <>
-   <Header />
    
    <div className="container px-2 my-10">
     <SectionHeader

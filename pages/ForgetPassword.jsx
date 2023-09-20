@@ -40,7 +40,6 @@ export default function ForgetPassword() {
  }
  return (
   <>
-   <Header />
    <div className="my-8 container p-5 grid md:grid-cols-4 items-center justify-center">
     <b></b>
     <form onSubmit={ResetPassHandler} className='grid col-span-2 gap-5 p-5 rounded-xl border-2 border-gray-400 shadow-2xl bg-white'>

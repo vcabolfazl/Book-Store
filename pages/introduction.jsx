@@ -20,7 +20,6 @@ export default function introduction() {
  }
  return (
   <>
-   <Header />
 
    <div className="my-10 container px-2">
     <div className="w-full grid grid-cols-4 items-center justify-center">

@@ -6,8 +6,6 @@ export default function index() {
   const [num, setNum] = useState(1)
   return (
     <>
-      <Header />
-
       <div className="container">
 
         <div className="w-full p-5 bg-white shadow-2xl my-10 rounded-2xl">

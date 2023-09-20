@@ -11,8 +11,6 @@ export default function index() {
  const [emailValue, emailBinding] = useInput("Abolfazl.org@yahoo.com")
  return (
   <>
-   <Header />
-
    <div className="container px-2">
     <div className="grid md:grid-cols-4 gap-5 my-8">
 

@@ -7,7 +7,6 @@ import React from 'react'
 export default function Order() {
  return (
   <>
-   <Header />
    <div className="container px-2">
     <div className="grid md:grid-cols-4 gap-5 my-8">
      {/* --> Start Right Side */}
