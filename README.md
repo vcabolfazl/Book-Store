@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-## Online book store
-=======
-## Book Store (Next JS)
->>>>>>> 1f3e5b736b2c486cc823a0a7da78a076a300dc36
+# Book Store (Next JS)
+
 This project only contains Front-End code and does not include Back-end code
+
+This project includes pages: product display, single product, user profile, search page, error 404, forgot password, shopping cart, login and registration.
 ### Technologies used :
 - Next JS
 - React JS
